@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="pink heart.css" />
+    <title>Pink heart</title>
+  </head>
+  <body>
+    <!-- tiktok meowish -->
+    <canvas id="pinkboard"></canvas>
+
+    <!-- Reproductor de audio oculto -->
+    <audio id="audio" src="audio.mp3" loop></audio>
+
+    <script src="pink heart.js"></script>
+    <script>
+      // Función para reproducir el audio
+      function playAudio() {
+        const audio = document.getElementById('audio');
+        audio.play().catch(error => {
+          console.error('Error al reproducir el audio:', error);
+        });
+      }
+
+      // Intentar reproducir el audio al cargar la página
+      document.addEventListener('DOMContentLoaded', () => {
+        playAudio();
+
+        // Escuchar interacciones del usuario para desbloquear la reproducción si es necesario
+        document.body.addEventListener('click', () => {
+          playAudio();
+        });
+      });
+    </script>
+  </body>
+</html>
